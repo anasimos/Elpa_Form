@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'reading/fonts/icomoon/style.css '%}">
+
+    <link rel="stylesheet" href="{% static 'reading/css/owl.carousel.min.css '%}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'reading/css/bootstrap.min.css '%}">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'reading/css/style.css' %}">
+
+<!-- {% static 'reading/ '%}-->
+
+  <div class="content">
+    <div class="container">
+      <div class="shadow-overlay"></div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="{% static 'reading/images/undraw_remotely_2j6y.svg '%}" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+              <h3>Meter Reading</h3>
+              <p class="mb-4">Fill out the spaces</p>
+            </div>
+            {% if submitted  %}
+              <div class="popup" onclick="myFunction()">Click me!
+                <h1>HI there You made It</h1>
+              </div>
+              <script>
+                // When the user clicks on <div>, open the popup
+                function myFunction() {
+                  var popup = document.getElementById("myPopup");
+                  popup.classList.toggle("show");
+                }
+                </script>
+            {% else  %}
+            <form action="#" method=POST>
+              {% csrf_token %}
+            <div >  
+              {{form.as_p}}
+            </div>  
+              
+
+              <input type="submit" value="Submit" class="btn btn-block btn-primary">
+
+              <span class="d-block text-left my-4 text-muted">&mdash; Or Follow Us &mdash;</span>
+              
+              <div class="social-login">
+                <a href="#" class="facebook">
+                  <span class="icon-facebook mr-3"></span> 
+                </a>
+                <a href="#" class="twitter">
+                  <span class="icon-twitter mr-3"></span> 
+                </a>
+                <a href="#" class="google">
+                  <span class="icon-google mr-3"></span> 
+                </a>
+              </div>
+            </form>
+            {% endif  %}
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+    <script src="{% static 'reading/js/jquery-3.3.1.min.js '%}"></script>
+    <script src="{% static 'reading/js/popper.min.js '%}"></script>
+    <script src="{% static 'reading/js/bootstrap.min.js '%}"></script>
+    <script src="{% static 'reading/js/main.js '%}"></script>
+{% endblock %}

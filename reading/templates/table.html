@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'base_/css/bootstrap.min.css '%}">
+<section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="{% static 'base_/images/hero-bg.jpg'%}" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
+
+    <div class="shadow-overlay"></div>
+
+    <div class="home-content">
+
+        <div class="row home-content__main">
+
+            <div class="home-content__left">
+                <h1>
+                An Amazing App <br>
+                That Does It All.
+                </h1>
+
+                <h3>
+                Voluptatem ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explica. Nemo enim ipsam voluptatem quia. 
+                Ut quis enim.
+                </h3>
+
+                <div class="home-content__btn-wrap">
+                    <a href="#download" class="btn btn--primary home-content__btn smoothscroll">
+                        Get The App
+                    </a>
+                </div>
+            </div> <!-- end home-content__left-->
+
+            <div class="home-content__right">
+                
+            </div> <!-- end home-content__right -->
+
+
+
+
+    
+    <div class="container">
+        <table class="table table-dark">
+            <thead >
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Reading ID</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">BP Number</th>
+                <th scope="col">Account Number</th>
+                <th scope="col">Meter Reading</th>
+                <th scope="col">Date of Reading</th>
+                    
+                </tr>
+            </thead>
+            {% for i in read%}
+            <tbody>
+                <tr>
+                <th scope="row"></th>
+                <td>{{i.reading_id}}</td>
+                <td>{{i.fullname}}</td>
+                <td>{{i.BPNumber}}</td>
+                <td>{{i.accNumber}}</td>
+                <td>{{i.meterReading}}</td>
+                <td>{{i.created_at}}</td>
+                </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</section> <!-- end s-home -->
+
+{% endblock %}
+    
